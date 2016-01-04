@@ -14,7 +14,7 @@ public class AddCmdTest {
     public void testCalculate() throws Exception {
 //        int expected = 6;
 //        assertEquals(expected, Integer.parseInt(new AddCmd("1 2 3").calculate().getRes()));
-        assertTrue(true;
+        assertTrue(true);
 
         // TODO add good tests
     }
