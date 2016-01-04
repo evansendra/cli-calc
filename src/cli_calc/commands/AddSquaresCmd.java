@@ -1,7 +1,7 @@
 package cli_calc.commands;
 
 import cli_calc.CalcResult;
-
+import java.util.List;
 /**
  * adds the squares of a list of args (integers)
  */
@@ -11,7 +11,7 @@ public class AddSquaresCmd extends Command {
      * constructs this command with it's string cmd and args
      * @param args the list of integers whose squares to add together
      */
-    public AddSquaresCmd(String args) {
+    public AddSquaresCmd(List<Double> args) {
         super("addsquares", args);
     }
 
@@ -21,7 +21,10 @@ public class AddSquaresCmd extends Command {
      */
     @Override
     public CalcResult calculate() throws IllegalArgumentException {
-        // TODO
-        return null;
+        double res = 0.0;
+        for(int i = 0; i < this.getArgs().size(); i++){
+        	res += (Math.pow(this.getArgs().get(i), 2));
+        }
+        return new CalcResult(this,res);
     }
 }

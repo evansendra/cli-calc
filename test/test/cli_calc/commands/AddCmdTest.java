@@ -13,7 +13,7 @@ public class AddCmdTest {
     @Test
     public void testCalculate() throws Exception {
         int expected = 6;
-        assertEquals(expected, Integer.parseInt(new AddCmd("1 2 3").calculate().getRes()));
+        assertEquals(expected, (new AddCmd("1 2 3").calculate().getRes()));
 
         // TODO add good tests
     }

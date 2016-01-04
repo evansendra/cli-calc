@@ -8,13 +8,13 @@ import cli_calc.commands.Command;
  */
 public class CalcResult {
     private Command cmd; // the command which produced this result
-    private String res; // the string result of computation
+    private double res; // the  result of computation
 
     /**
      * @param cmd the command issued to the calculator
      * @param res the result of the computation
      */
-    public CalcResult(Command cmd, String res) {
+    public CalcResult(Command cmd, double res) {
         this.cmd = cmd;
         this.res = res;
     }
@@ -29,7 +29,19 @@ public class CalcResult {
     /**
      * @return the result of this computation
      */
-    public String getRes() {
+    public double getRes() {
         return res;
+    }
+    
+    /**
+     * @return the command, arguments, and resulting computation
+     */
+    @Override
+    public String toString(){
+    	String args ="";
+    	for(Double d: cmd.getArgs()){
+    		args += d + " ";
+    	}
+    	return this.getCmd().getCmd() + " " + args + " = " + this.getRes();
     }
 }
