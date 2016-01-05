@@ -15,6 +15,9 @@ public class AddCmdTest {
         int expected = 6;
         assertEquals(expected, (new AddCmd("1 2 3").calculate().getRes()));
 
+//        int expected = 6;
+//        assertEquals(expected, Integer.parseInt(new AddCmd("1 2 3").calculate().getRes()));
+        assertTrue(true);
         // TODO add good tests
     }
 }
