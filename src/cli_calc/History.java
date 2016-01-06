@@ -28,6 +28,18 @@ public class History {
 		}
 	}
 	
+	public static double getResult(int index){
+		CalcResult result;
+		if(results == null)
+			results = new ArrayList<CalcResult>();
+		
+		if(results.size() <= index -1){
+			throw new IndexOutOfBoundsException();
+		}else{
+			result = results.get(index - 1);
+		}
+		return result.getRes();
+	}
 	private static boolean add(CalcResult result){
 		return results.add(result);
 	}
