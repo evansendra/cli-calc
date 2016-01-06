@@ -2,7 +2,12 @@ package test.cli_calc.commands;
 
 import org.junit.Test;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import cli_calc.Parser;
+import cli_calc.commands.AddCmd;
+import cli_calc.commands.Command;
 import static org.junit.Assert.*;
 
 public class ParserTest {
@@ -79,5 +84,19 @@ public class ParserTest {
 		String validInput = "div 1 2 3";
 		String output = parser.parseInput(validInput);
 		assertEquals(validInput,output);
+	}
+	
+	@Test
+	public void testParseInput11(){
+		Parser parser = new Parser();
+		String validInput = "add 1 !1";
+		String output = parser.parseInput(validInput);
+		assertEquals(validInput, output);
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void testParseInput12(){
+		Parser parser = new Parser();
+		String invalidInput = "add ! ! !";
+		parser.parseInput(invalidInput);
 	}
 }

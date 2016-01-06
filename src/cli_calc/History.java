@@ -1,4 +1,5 @@
 package cli_calc;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class History {
 		}
 	}
 	
-	public static double getResult(int index){
+	public static double getResult(int index) throws IndexOutOfBoundsException{
 		CalcResult result;
 		if(results == null)
 			results = new ArrayList<CalcResult>();
