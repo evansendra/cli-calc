@@ -8,48 +8,46 @@ public class History {
 	private static List<CalcResult>results;
 	
 	private History(){
-		results = new ArrayList<CalcResult>();
+		results = new ArrayList<>();
 	}
 	
 	public static boolean addToHistory(CalcResult result){
 		if(results == null){
-			results = new ArrayList<CalcResult>();
+			results = new ArrayList<>();
 			return add(result);
 		}else{
 			return add(result);
 		}
 	}
-	
-	public static boolean clearHistory(){
+
+	public static List<CalcResult> getFullHist() {
+		if (results == null) {
+			results = new ArrayList<>();
+		}
+		return results;
+	}
+
+	public static void clearHistory(){
 		if(results == null){
-			results = new ArrayList<CalcResult>();
-			return true;
-		}else{
-			return clear();
+			results = new ArrayList<>();
 		}
+        results.clear();
 	}
 	
-	public static double getResult(int index) throws IndexOutOfBoundsException{
+	public static CalcResult getResult(int index) throws IndexOutOfBoundsException{
 		CalcResult result;
 		if(results == null)
-			results = new ArrayList<CalcResult>();
+			results = new ArrayList<>();
 		
 		if(results.size() <= index -1){
 			throw new IndexOutOfBoundsException();
 		}else{
 			result = results.get(index - 1);
 		}
-		return result.getRes();
+		return result;
 	}
+
 	private static boolean add(CalcResult result){
 		return results.add(result);
-	}
-	
-	private static boolean clear(){
-		Iterator<CalcResult>itr = results.iterator();
-		while( itr.hasNext()){
-			itr.remove();
-		}
-		return results.size() == 0;
 	}
 }

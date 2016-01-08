@@ -1,5 +1,12 @@
 package cli_calc.driver;
 
+import cli_calc.CalcResult;
+import cli_calc.History;
+import cli_calc.Parser;
+import cli_calc.commands.ClearHistCmd;
+import cli_calc.commands.Command;
+import cli_calc.commands.HistCmd;
+
 import java.util.Scanner;
 
 /**
@@ -33,8 +40,18 @@ public class Driver {
                 int normalExitCode = 0;
                 System.exit(normalExitCode);
             } else {
-                // TODO actually process input with parser
-                System.out.println(line);
+                Command c;
+                try {
+                    c = Parser.parseInputToCommand(line);
+                    CalcResult res = c.calculate();
+                    History.addToHistory(res);
+                    if (c.getClass() != HistCmd.class &&
+                        c.getClass() != ClearHistCmd.class) {
+                        System.out.println(res.getRes());
+                    }
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
 
