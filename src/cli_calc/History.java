@@ -20,10 +20,10 @@ public class History {
 		}
 	}
 	
-	public static boolean clearHistory(){
+	public static CalcResult clearHistory(){
 		if(results == null){
 			results = new ArrayList<CalcResult>();
-			return true;
+			return null;
 		}else{
 			return clear();
 		}
@@ -45,11 +45,11 @@ public class History {
 		return results.add(result);
 	}
 	
-	private static boolean clear(){
-		Iterator<CalcResult>itr = results.iterator();
-		while( itr.hasNext()){
-			itr.remove();
+	private static CalcResult clear(){
+		CalcResult result = null;
+		for(int i = 0; i < results.size(); i++){
+			result = results.remove(i);
 		}
-		return results.size() == 0;
+		return result;
 	}
 }
