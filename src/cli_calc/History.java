@@ -8,12 +8,12 @@ public class History {
 	private static List<CalcResult>results;
 	
 	private History(){
-		results = new ArrayList<CalcResult>();
+		results = new ArrayList<>();
 	}
 	
 	public static boolean addToHistory(CalcResult result){
 		if(results == null){
-			results = new ArrayList<CalcResult>();
+			results = new ArrayList<>();
 			return add(result);
 		}else{
 			return add(result);
@@ -28,23 +28,33 @@ public class History {
 			return clear();
 		}
 	}
+	public static List<CalcResult> getFullHist() {
+		if (results == null) {
+			results = new ArrayList<>();
+		}
+		return results;
+	}
+
+
 	
-	public static double getResult(int index) throws IndexOutOfBoundsException{
+	public static CalcResult getResult(int index) throws IndexOutOfBoundsException{
 		CalcResult result;
 		if(results == null)
-			results = new ArrayList<CalcResult>();
+			results = new ArrayList<>();
 		
 		if(results.size() <= index -1){
 			throw new IndexOutOfBoundsException();
 		}else{
 			result = results.get(index - 1);
 		}
-		return result.getRes();
+		return result;
 	}
+
+	
 	private static boolean add(CalcResult result){
 		return results.add(result);
 	}
-	
+
 	private static CalcResult clear(){
 		CalcResult result = null;
 		for(int i = 0; i < results.size(); i++){

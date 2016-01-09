@@ -1,6 +1,8 @@
 package cli_calc;
 
+import cli_calc.commands.ClearHistCmd;
 import cli_calc.commands.Command;
+import cli_calc.commands.HistCmd;
 
 /**
  * an abstraction of a resulted computation from the calculator
@@ -8,7 +10,7 @@ import cli_calc.commands.Command;
  */
 public class CalcResult {
     private Command cmd; // the command which produced this result
-    private double res; // the  result of computation
+    private Double res; // the  result of computation
 
     /**
      * @param cmd the command issued to the calculator
@@ -29,7 +31,7 @@ public class CalcResult {
     /**
      * @return the result of this computation
      */
-    public double getRes() {
+    public Double getRes() {
         return res;
     }
     
@@ -38,10 +40,18 @@ public class CalcResult {
      */
     @Override
     public String toString(){
-    	String args ="";
-    	for(Double d: cmd.getArgs()){
-    		args += d + " ";
-    	}
-    	return this.getCmd().getCmd() + " " + args + " = " + this.getRes();
+        String retStr;
+        if (cmd.getClass() == HistCmd.class) {
+            retStr = cmd.getCmd() + " -> printed the full history";
+        } else if (cmd.getClass() == ClearHistCmd.class) {
+            retStr = cmd.getCmd() + " -> cleared the history";
+        } else {
+            String args = "";
+            for (Double d : cmd.getArgs()) {
+                args += d + " ";
+            }
+            retStr = cmd.getCmd() + " " + args + " = " + res;
+        }
+        return retStr;
     }
 }
