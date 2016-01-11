@@ -40,16 +40,10 @@ public class CalcResult {
      */
     @Override
     public String toString(){
-        String retStr;
-        if (cmd.getClass() == HistCmd.class || cmd.getClass() == ClearHistCmd.class) {
-            retStr = "";
-        } else {
-            String args = "";
-            for (Double d : cmd.getArgs()) {
-                args += d + " ";
-            }
-            retStr = cmd.getCmd() + " " + args + " = " + res;
+        String args = "";
+        for (Double d : cmd.getArgs()) {
+            args += d + " ";
         }
-        return retStr;
+        return cmd.getCmd() + " " + args + " = " + res;
     }
 }

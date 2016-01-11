@@ -45,8 +45,8 @@ public class Driver {
                     c = Parser.parseInputToCommand(line);
                     CalcResult res = c.calculate();
                     History.addToHistory(res);
-                    if (c.getClass() != HistCmd.class &&
-                        c.getClass() != ClearHistCmd.class) {
+                    if (!c.getCmd().equals("hist") &&
+                        !c.getCmd().equals("clearhist")) {
                         System.out.println(res.getRes());
                     }
                 } catch (IllegalArgumentException e) {

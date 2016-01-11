@@ -12,20 +12,23 @@ public class History {
 	}
 	
 	public static boolean addToHistory(CalcResult result){
-		if(results == null){
+		if(results == null) {
 			results = new ArrayList<>();
-			return add(result);
-		}else{
-			return add(result);
 		}
+
+		boolean wasAdded = false;
+		if (result.getCmd().getCmd().equals("hist") || result.getCmd().getCmd().equals("clearhist")) {
+			return false;
+		}
+
+        return add(result);
 	}
 	
-	public static CalcResult clearHistory(){
+	public static void clearHistory(){
 		if(results == null){
-			results = new ArrayList<CalcResult>();
-			return null;
+			results = new ArrayList<>();
 		}else{
-			return clear();
+			clear();
 		}
 	}
 	public static List<CalcResult> getFullHist() {
@@ -55,11 +58,7 @@ public class History {
 		return results.add(result);
 	}
 
-	private static CalcResult clear(){
-		CalcResult result = null;
-		for(int i = 0; i < results.size(); i++){
-			result = results.remove(i);
-		}
-		return result;
+	private static void clear(){
+		results.clear();
 	}
 }
