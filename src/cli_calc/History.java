@@ -19,7 +19,15 @@ public class History {
 			return add(result);
 		}
 	}
-
+	
+	public static CalcResult clearHistory(){
+		if(results == null){
+			results = new ArrayList<CalcResult>();
+			return null;
+		}else{
+			return clear();
+		}
+	}
 	public static List<CalcResult> getFullHist() {
 		if (results == null) {
 			results = new ArrayList<>();
@@ -27,12 +35,7 @@ public class History {
 		return results;
 	}
 
-	public static void clearHistory(){
-		if(results == null){
-			results = new ArrayList<>();
-		}
-        results.clear();
-	}
+
 	
 	public static CalcResult getResult(int index) throws IndexOutOfBoundsException{
 		CalcResult result;
@@ -47,7 +50,16 @@ public class History {
 		return result;
 	}
 
+	
 	private static boolean add(CalcResult result){
 		return results.add(result);
+	}
+
+	private static CalcResult clear(){
+		CalcResult result = null;
+		for(int i = 0; i < results.size(); i++){
+			result = results.remove(i);
+		}
+		return result;
 	}
 }
