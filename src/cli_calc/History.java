@@ -39,10 +39,10 @@ public class History {
 		if(results == null)
 			results = new ArrayList<>();
 		
-		if(results.size() <= index -1){
+		if(results.size() <= index){
 			throw new IndexOutOfBoundsException();
 		}else{
-			result = results.get(index - 1);
+			result = results.get(index);
 		}
 		return result;
 	}

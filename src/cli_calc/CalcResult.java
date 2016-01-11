@@ -41,10 +41,8 @@ public class CalcResult {
     @Override
     public String toString(){
         String retStr;
-        if (cmd.getClass() == HistCmd.class) {
-            retStr = cmd.getCmd() + " -> printed the full history";
-        } else if (cmd.getClass() == ClearHistCmd.class) {
-            retStr = cmd.getCmd() + " -> cleared the history";
+        if (cmd.getClass() == HistCmd.class || cmd.getClass() == ClearHistCmd.class) {
+            retStr = "";
         } else {
             String args = "";
             for (Double d : cmd.getArgs()) {
