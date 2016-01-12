@@ -1,3 +1,9 @@
+/**
+ * @author baumgartd
+ * @date 1/1132016
+ * This class is used to divide a list of numbers.
+ */
+
 package cli_calc.commands;
 
 import cli_calc.CalcResult;

@@ -1,3 +1,9 @@
+/**
+ * @author baumgartd
+ * @date 1/1132016
+ * This class tests the Parser class functionality.
+ */
+
 package test.cli_calc.commands;
 
 import cli_calc.commands.*;
@@ -68,36 +74,42 @@ public class ParserTest {
 	public void testparseInputToCommand2() throws Exception{
 		String invalidInput = "1 + 2 + 3";
 		Parser.parseInputToCommand(invalidInput);
+		fail();
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testparseInputToCommand3() throws Exception{
 		String invalidInput = "add one two three";
 		Parser.parseInputToCommand(invalidInput);
+		fail();
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testparseInputToCommand4() throws Exception{
 		String invalidInput = "add one 2 three";
 		Parser.parseInputToCommand(invalidInput);
+		fail();
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testparseInputToCommand5() throws Exception{
 		String invalidInput = "add one + two";
 		Parser.parseInputToCommand(invalidInput);
+		fail();
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testparseInputToCommand6() throws Exception{
 		String invalidInput = "add ";
 		Parser.parseInputToCommand(invalidInput);
+		fail();
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testparseInputToCommand7() throws Exception{
 		String invalidInput = "add";
 		Parser.parseInputToCommand(invalidInput);
+		fail();
 	}
 
 	@Test
@@ -141,5 +153,20 @@ public class ParserTest {
 	public void testparseInputToCommand12(){
 		String invalidInput = "add ! ! !";
 		Parser.parseInputToCommand(invalidInput);
+		fail();
+	}
+	
+	@Test
+	public void testParseInputToCommand13(){
+		String vaildInput = "add 1 !3 2 3";
+		Command output = Parser.parseInputToCommand(vaildInput);
+		assertEquals(AddCmd.class, output.getClass());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testParseInputCommand14(){
+		String invalidInput = "!2 1 2 3";
+		Parser.parseInputToCommand(invalidInput);
+		fail();
 	}
 }

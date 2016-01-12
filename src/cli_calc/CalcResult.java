@@ -11,7 +11,7 @@ import cli_calc.commands.HistCmd;
 public class CalcResult {
     private Command cmd; // the command which produced this result
     private Double res; // the  result of computation
-
+    
     /**
      * @param cmd the command issued to the calculator
      * @param res the result of the computation
@@ -19,6 +19,10 @@ public class CalcResult {
     public CalcResult(Command cmd, double res) {
         this.cmd = cmd;
         this.res = res;
+    }
+    
+    public CalcResult(Command cmd, String string){
+    	
     }
 
     /**
@@ -44,6 +48,6 @@ public class CalcResult {
         for (Double d : cmd.getArgs()) {
             args += d + " ";
         }
-        return cmd.getCmd() + " " + args + " = " + res;
+        return cmd.getCmd() + " " + args + "= " + res;
     }
 }
