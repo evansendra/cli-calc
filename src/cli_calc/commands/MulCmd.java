@@ -28,7 +28,7 @@ public class MulCmd extends Command {
     @Override
     public CalcResult calculate() throws IllegalArgumentException {
         double res = this.getArgs().get(0);
-        for(int i = 0; i < this.getArgs().size(); i++){
+        for(int i = 1; i < this.getArgs().size(); i++){
         	res *= this.getArgs().get(i);
         }
         return new CalcResult(this,res);
