@@ -30,12 +30,13 @@ public class History {
 			history = new History();
 		}
 
-		boolean wasAdded = false; 
+		boolean wasAdded;
 		try{
-			if (result.getCmd().getCmd().equals("hist") || result.getCmd().getCmd().equals("clearhist"))
+			if (result.getCmd().getCmd().equals("hist") || result.getCmd().getCmd().equals("clearhist")) {
 				wasAdded = false;
-			
-			wasAdded = add(result);
+			} else {
+				wasAdded = add(result);
+			}
 		}catch(NullPointerException e){
 			wasAdded = false;
 		}
