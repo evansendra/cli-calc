@@ -2,6 +2,13 @@
 
 ## A project for SE-3800 by Evan Sendra and Dan Baumgard
 
+This project is a command line calculator which keeps history and allows substitution of historic computations.
+
+Java version 8 (see pom.xml).
+Junit version 4.11 (see pom.xml).
+
+Maven is used to build the project and test it:
+
 Setup the project
 
     $ mvn package
@@ -9,6 +16,10 @@ Setup the project
 Run the tests
 
     $ mvn test
+
+Output of successful test command should show:
+	
+	Tests run: NUMBER, Failures: 0, Errors: 0, Skipped: 0
     
 Run the program (after running `mvn package`)
 
@@ -37,3 +48,15 @@ Sample commands:
     > hist
     > q
     
+All commands:
+
+	add
+	addsquares
+	div
+	mul
+	sub
+	hist
+	clearhist
+
+A command with an operator of ! followed by an number (zero-based) substitutes that result in the history of computations since beginning of program or running clearhist.
+
