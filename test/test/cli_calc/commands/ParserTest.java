@@ -136,6 +136,7 @@ public class ParserTest {
 
 	@Test
 	public void testparseInputToCommand11(){
+		History.clearHistory();
 		String validInput = "add 1 !1";
 		/*
 		 * we expect there to be an error because the history logging is done by

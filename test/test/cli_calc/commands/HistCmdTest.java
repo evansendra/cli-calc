@@ -31,6 +31,7 @@ public class HistCmdTest {
     
     @Before
     public void setUp() throws Exception {
+        History.clearHistory();
     	List<Double>list = new ArrayList<Double>();
     	for(double i = 1; i < 3; i++){
 			list.add(i);
@@ -39,7 +40,7 @@ public class HistCmdTest {
     	Command add = new AddCmd(list);
     	hist = new HistCmd();
     	
-			History.addToHistory(add.calculate());
+        History.addToHistory(add.calculate());
 		    
 		
         sysout = new ByteArrayOutputStream();
@@ -51,6 +52,7 @@ public class HistCmdTest {
 
     @After
     public void teardown() throws Exception {
+        History.clearHistory();
         System.setIn(System.in);
         System.setOut(System.out);
         System.setErr(System.err);
