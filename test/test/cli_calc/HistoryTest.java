@@ -32,7 +32,7 @@ public class HistoryTest {
     @BeforeClass
     public static void setUpTestNumbers() {
         int limit = 10;
-        for (int i = limit; i >= 0; --i) {
+        for (int i = limit; i >= 1; --i) {
             TEST_NUMBERS.add((double)(i)); // 10 9 8 7 ... 0
         }
     }

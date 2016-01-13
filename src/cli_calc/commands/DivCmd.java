@@ -23,6 +23,9 @@ public class DivCmd extends Command {
 	 */
 	public DivCmd(List<Double> args) {
 		super("div", args);
+		if (args.size() < 2)
+			throw new IllegalArgumentException(
+					"Too few arguments to perform computation.");
 	}
 
 	/**
@@ -32,9 +35,7 @@ public class DivCmd extends Command {
 	 */
 	@Override
 	public CalcResult calculate() throws IllegalArgumentException {
-		if (this.getArgs().size() <= 1)
-			throw new IllegalArgumentException(
-					"Too few arguments to perform computation.");
+		
 		double res = this.getArgs().get(0);
 		for (int i = 1; i < this.getArgs().size(); i++) {
 			if (this.getArgs().get(i) == 0)

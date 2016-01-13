@@ -7,13 +7,14 @@
 package test.cli_calc.commands;
 
 import cli_calc.commands.*;
+
 import org.junit.Test;
 
 import java.util.List;
 import java.util.ArrayList;
 
+import cli_calc.History;
 import cli_calc.Parser;
-
 import static org.junit.Assert.*;
 
 public class ParserTest {
@@ -158,7 +159,11 @@ public class ParserTest {
 	
 	@Test
 	public void testParseInputToCommand13(){
-		String vaildInput = "add 1 !3 2 3";
+		List<Double>list = new ArrayList<Double>();
+		list.add(1.0);
+		list.add(2.0);
+		String vaildInput = "add 1 !0 2 3";
+		History.addToHistory(new AddCmd(list).calculate());
 		Command output = Parser.parseInputToCommand(vaildInput);
 		assertEquals(AddCmd.class, output.getClass());
 	}

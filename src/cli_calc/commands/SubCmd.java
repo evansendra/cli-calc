@@ -21,6 +21,9 @@ public class SubCmd extends Command {
 	 */
 	public SubCmd(List<Double> args) {
 		super("sub", args);
+		if (this.getArgs().size() < 2)
+			throw new IllegalArgumentException(
+					"Too few arguments to perform computation.");
 	}
 
 	/**
@@ -30,9 +33,6 @@ public class SubCmd extends Command {
 	 */
 	@Override
 	public CalcResult calculate() throws IllegalArgumentException {
-		if (this.getArgs().size() <= 1)
-			throw new IllegalArgumentException(
-					"Too few arguments to perform computation.");
 		double res = this.getArgs().get(0);
 		for (int i = 1; i < this.getArgs().size(); i++) {
 			res -= this.getArgs().get(i);

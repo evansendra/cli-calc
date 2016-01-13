@@ -23,6 +23,9 @@ public class AddCmd extends Command {
 	 */
 	public AddCmd(List<Double> args) {
 		super("add", args);
+		if (this.getArgs().size() <= 1)
+			throw new IllegalArgumentException(
+					"Too few arguments to perform computation.");
 	}
 
 	/**
@@ -32,9 +35,6 @@ public class AddCmd extends Command {
 	 */
 	@Override
 	public CalcResult calculate() throws IllegalArgumentException {
-		if (this.getArgs().size() <= 1)
-			throw new IllegalArgumentException(
-					"Too few arguments to perform computation.");
 		double res = 0.0;
 		for (Double d : this.getArgs()) {
 			res += d;
