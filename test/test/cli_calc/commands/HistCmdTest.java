@@ -41,8 +41,8 @@ public class HistCmdTest {
     	hist = new HistCmd();
     	
         History.addToHistory(add.calculate());
-		    
-		
+
+
         sysout = new ByteArrayOutputStream();
         syserr = new ByteArrayOutputStream();
 
@@ -60,11 +60,12 @@ public class HistCmdTest {
 
     @Test
     public void testHistCmd() throws Exception {
-    	Command hist = new HistCmd();
         sysin = new ByteArrayInputStream("exit".getBytes("UTF8"));
         System.setIn(sysin);
-        
-        hist.calculate();
+
+        HistCmd h = new HistCmd();
+        h.calculate();
+
         String console = sysout.toString();
         String newLine = System.getProperty("line.separator");
         String expected = "add 1.0 2.0 = 3.0" + newLine;

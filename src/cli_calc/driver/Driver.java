@@ -20,6 +20,7 @@ public class Driver {
      * @param args not expected / not used
      */
     public static void main(String args[]) {
+        boolean isTestRun = isTestRun(args);
         Scanner sc = new Scanner(System.in);
 
         String welcomeMsg = "Welcome to CLI calc, enter a command like " + System.lineSeparator() +
@@ -28,9 +29,10 @@ public class Driver {
             "example command would be '> add 1 2 3'." + System.lineSeparator() +
             System.lineSeparator() +
             "Enter 'q' to quit" + System.lineSeparator();
-        System.out.println(welcomeMsg);
+        if (!isTestRun)
+            System.out.println(welcomeMsg);
 
-        for (prompt(); sc.hasNextLine(); prompt()) {
+        for (prompt(isTestRun); sc.hasNextLine(); prompt(isTestRun)) {
             String line = sc.nextLine().replaceAll(System.lineSeparator(), "");
             if (line.isEmpty()) {
                 continue;
@@ -38,7 +40,11 @@ public class Driver {
 
             if (line.equalsIgnoreCase("q")) {
                 int normalExitCode = 0;
-                System.exit(normalExitCode);
+                if (isTestRun)
+                    return;
+                else
+                    System.exit(normalExitCode);
+
             } else {
                 Command c;
                 try {
@@ -58,9 +64,18 @@ public class Driver {
     }
 
     /**
-     * prompts the user for next line of input
+     * prompts the user for next line of input if we're not running tests
      */
-    private static void prompt() {
-        System.out.print("> ");
+    private static void prompt(boolean isTestRun) {
+        if (!isTestRun)
+            System.out.print("> ");
+    }
+
+    /**
+     * @param args the command line args of the main method
+     * @return true if test was passed in as a command line arg false otherwise
+     */
+    public static boolean isTestRun(String[] args) {
+        return args != null && args.length >= 1 && args[0].equalsIgnoreCase("test");
     }
 }

@@ -35,6 +35,7 @@ public class HistoryTest {
         for (int i = limit; i >= 1; --i) {
             TEST_NUMBERS.add((double)(i)); // 10 9 8 7 ... 0
         }
+        History.clearHistory();
     }
 
     @After

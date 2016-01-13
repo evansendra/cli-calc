@@ -18,6 +18,14 @@ public class History {
 	private History(){
 		results = new ArrayList<>();
 	}
+
+	/**
+	 * instantiates the singleton if wasn't done already
+	 */
+	private static void nullCheck() {
+		if (history == null)
+			history = new History();
+	}
 	
 	/**
 	 * Adds the calculated result to the results list. 
@@ -26,9 +34,7 @@ public class History {
 	 */
 	public static boolean addToHistory(CalcResult result){
 		//If this is the first time calling the method, instantiate
-		if(history == null) {
-			history = new History();
-		}
+		nullCheck();
 
 		boolean wasAdded;
 		try{
@@ -47,11 +53,8 @@ public class History {
 	 * Empty the results list
 	 */
 	public static void clearHistory(){
-		if(history == null){
-			history = new History();
-		}else{
-			clear();
-		}
+		nullCheck();
+		clear();
 	}
 	
 	/**
@@ -59,9 +62,7 @@ public class History {
 	 * @return the results list
 	 */
 	public static List<CalcResult> getFullHist() {
-		if (history == null) {
-			history = new History();
-		}
+		nullCheck();
 		return results;
 	}
 
@@ -74,8 +75,7 @@ public class History {
 	 */
 	public static CalcResult getResult(int index) throws IndexOutOfBoundsException{
 		CalcResult result;
-		if(history == null)
-			history = new History();
+		nullCheck();
 		
 		if(results.size() <= index){
 			throw new IndexOutOfBoundsException();
