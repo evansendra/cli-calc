@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/evansendra/se3800-cli-calc.svg?branch=master)](https://travis-ci.org/evansendra/se3800-cli-calc)
+
 # cli-calc 
 
 ## A project for SE-3800 by Evan Sendra and Dan Baumgard
