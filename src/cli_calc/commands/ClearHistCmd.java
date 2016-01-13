@@ -1,9 +1,11 @@
+/**
+ * @author sendrae
+ */
+
 package cli_calc.commands;
 
 import cli_calc.CalcResult;
 import cli_calc.History;
-
-import java.util.List;
 
 /**
  * clears the history of commands

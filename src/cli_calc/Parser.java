@@ -1,3 +1,6 @@
+/**
+ * @author sendrae
+ */
 package cli_calc;
 
 import cli_calc.commands.*;
@@ -29,7 +32,7 @@ public class Parser {
             throw new IllegalArgumentException("Not enough arguments provided in command.");
         }
 
-        Command output = null;
+        Command output;
         switch (tok[0].toLowerCase()) {
             case "add":
                 output = parseMathComputation(tok, OperatorType.ADD);

@@ -5,8 +5,8 @@
  */
 package cli_calc;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class History {
 	private static List<CalcResult>results;
@@ -69,7 +69,7 @@ public class History {
 
 	/**
 	 * Get a specific result
-	 * @param index 
+	 * @param index the index of the result to get in list
 	 * @return CalcResult
 	 * @throws IndexOutOfBoundsException
 	 */
@@ -87,7 +87,7 @@ public class History {
 
 	/**
 	 * Helper method for adding a result to the results list.
-	 * @param result
+	 * @param result the result to add to the history
 	 * @return the added result
 	 */
 	private static boolean add(CalcResult result){

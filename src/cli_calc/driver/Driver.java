@@ -1,11 +1,13 @@
+/**
+ * @author sendrae
+ */
+
 package cli_calc.driver;
 
 import cli_calc.CalcResult;
 import cli_calc.History;
 import cli_calc.Parser;
-import cli_calc.commands.ClearHistCmd;
 import cli_calc.commands.Command;
-import cli_calc.commands.HistCmd;
 
 import java.util.Scanner;
 
@@ -17,7 +19,8 @@ public class Driver {
     /**
      * continuously receives command line input until
      * the command "q" is issued, then we exit the program
-     * @param args not expected / not used
+     * @param args if test is given as the first arg, we print only command output to console
+     *             fore easier testing
      */
     public static void main(String args[]) {
         boolean isTestRun = isTestRun(args);

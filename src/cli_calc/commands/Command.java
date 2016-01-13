@@ -1,6 +1,11 @@
+/**
+ * @author sendrae
+ */
+
 package cli_calc.commands;
 
 import cli_calc.CalcResult;
+
 import java.util.List;
 /**
  * a command the for which calculator knows how to calculate result

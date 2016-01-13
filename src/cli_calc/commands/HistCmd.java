@@ -1,3 +1,7 @@
+/**
+ * @author sendrae
+ */
+
 package cli_calc.commands;
 
 import cli_calc.CalcResult;

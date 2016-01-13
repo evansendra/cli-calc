@@ -1,8 +1,9 @@
+/**
+ * @author sendrae
+ */
 package cli_calc;
 
-import cli_calc.commands.ClearHistCmd;
 import cli_calc.commands.Command;
-import cli_calc.commands.HistCmd;
 
 /**
  * an abstraction of a resulted computation from the calculator
